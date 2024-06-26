@@ -1,34 +1,149 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+}
+
+nav {
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+  align-items: center;
+  height: 60px;
+}
+
+nav img {
+  height: 40px;
+  padding: 7px;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: rgb(230, 230, 230);
+}
+
+nav p {
+  flex-grow: 1;
   text-align: center;
+  padding-right: 50px;
+  margin: 0px 40px;
+  font-size: 18px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  flex-grow: 2.5;
+  text-align: center;
+  position: relative;
+  margin: 10px 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.title h1 {
+  position: absolute;
+  top: 42.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  width: 100%;
+  font-size: 40px;
+}
+
+.answers {
+  flex-grow: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 12px;
+  padding: 12px;
+  background-color: rgb(240, 240, 240);
+}
+
+.answers button {
+  color: white;
+  border: 0;
+  font-size: 35px;
+  font-family: sans-serif;
+  border-radius: 10px;
+  background-color: rgb(20, 118, 238);
+}
+
+@media only screen and (max-width: 690px) {
+  .answers {
+    flex-grow: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 12px;
+    padding: 12px;
+    background-color: rgb(240, 240, 240);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.correct {
+  background-color: rgb(52, 205, 52);
+  position: relative;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.correct p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding-bottom: 50px;
   color: white;
+  font-size: 50px;
+  font-family: Helvetica, sans-serif;
+  font-weight: 600;
 }
 
-.App-link {
-  color: #61dafb;
+.incorrect {
+  background-color: rgb(255, 74, 64);
+  position: relative;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
+.incorrect p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding-bottom: 50px;
+  color: white;
+  font-size: 50px;
+  font-family: Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 90vh;
+}
+
+.loading img {
+  animation: loading-spin infinite 5s linear;
+  width: 80px;
+}
+
+.loading p {
+  font-size: 56px;
+  margin: 0 10px 0 0;
+}
+
+@keyframes loading-spin {
   from {
     transform: rotate(0deg);
   }
